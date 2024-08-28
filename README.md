@@ -3,7 +3,7 @@ _By Sandro Ricardo De Souza_
 
 Repositório de códigos para o curso de [**Pós-graduação em Mineração de Dados**](https://serra.ifes.edu.br/cursos/pos-graduacao/pos-graduacao-lato-sensu-em-mineracao-de-dados-educacionais), ofertado pelo IFES da Serra, ES.
 
-Os códigos estão separados por disciplinas, incluindo os dados. Quaisquer dados sensívels ou pessoas serão colocados no .gitignore.
+Os códigos estão separados por disciplinas, incluindo os dados. Quaisquer dados sensívels ou pessoais, serão colocados no .gitignore.
 
 ## Disciplinas
 - Fundamentos de Ciência de Dados
