@@ -15,3 +15,6 @@ Os códigos estão separados por disciplinas, incluindo os dados. Quaisquer dado
 - Análise de Séries Temporais
 - Ferramentas e Soluções em Nuvem
 - Seminários de Projetos Aplicados
+
+
+Estou alterando este texto para teste
