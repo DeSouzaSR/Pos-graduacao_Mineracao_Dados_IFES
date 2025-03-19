@@ -9,9 +9,9 @@ Os códigos estão separados por disciplinas, incluindo os dados. Quaisquer dado
 - Fundamentos de Ciência de Dados
 - Python para Ciência de Dados
 - [Análise Exploratória de Dados](Analise_Exploratoria_Dados/)
-- [Aprendizado de Máquina: Modelos Preditivos](Aprendizado_de_Maquina/)
-- Aprendizado de Máquina: Modelo Descritivos
-- Visualização de Dados
+- [Aprendizado de Máquina: Modelos Preditivos](Aprendizado_de_Maquina_Modelos_Preditivos/)
+- [Aprendizado de Máquina: Modelo Descritivos](Aprendizado_de_Maquina_Modelos_Descritivos/)
+- [Visualização de Dados](Visualizacao_de_Dados/)
 - Análise de Séries Temporais
 - Ferramentas e Soluções em Nuvem
 - Seminários de Projetos Aplicados
