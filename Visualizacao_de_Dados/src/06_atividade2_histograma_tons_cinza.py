@@ -1,9 +1,12 @@
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
 
 # Carrega a imagem
-img = Image.open('../figuras/cidade_vitoria.jpg')
+#img = Image.open('../figuras/cidade_vitoria.jpg')
+img = Image.open(sys.argv[1])   
+
 
 # Converte a imagem para tons de cinza
 img_cinza = img.convert('L')
