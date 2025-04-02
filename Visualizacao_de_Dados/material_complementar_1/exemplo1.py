@@ -38,7 +38,7 @@ def plot_image_channels(image_path):
         b_image[:,:,2] = b_channel
     
         # Plotar a imagem original, os canais e a reconstrução
-        fig, axes = plt.subplots(1, 5, figsize = (25, 5))
+        fig, axes = plt.subplots(1, 5, figsize = (15, 5))
 
         # Títulos e imagens
         titles = ['Imagem original', "Canal R", "Canal G", "Canal B", "Imagem reconstruida"]
@@ -50,13 +50,30 @@ def plot_image_channels(image_path):
             ax.set_title(title)
             ax.axis('off') # Remover os eixos
     else: # Imagem em escala de cinza
-        print("Um canal") 
+        print("A imagem está em escala de cinza")
+
+        # Reconstruir a imagem a partir da escala de cinza (duplicando os canais)
+        reconstructed_image = np.stack((img_array, img_array, img_array), axis=-1)
+
+        # Plotar a imagem original e a imagem em escala de cinza
+        fig, axes = plt.subplots(1, 3, figsize=(15, 6))
+
+        # Títulos e imagens
+        titles = ['Imagem Original', 'Imagem em Escala de Cinza', 'Imagem Reconstruida']
+        channels = [img_array, img_array, reconstructed_image]
+
+        # Plotando as imagens
+        for ax, img, title in zip(axes, channels, titles):
+            ax.imshow(img, cmap='gray', vmin=0, vmax=255) # Definir os limites de intensidade do pixel
+            ax.set_title(title)
+            ax.axis('off')
 
     plt.tight_layout()
     plt.show()
 
 def main():
-    path_image = r'../figuras/frutas.jpg'
+    #path_image = r'../figuras/polen.bmp'
+    path_image = input("Entre com o caminho da imagem: ").strip().replace("\\", "/")
     plot_image_channels(path_image)
 
 if __name__ == '__main__':
