@@ -1,0 +1,46 @@
+
+Amostra
+--------------------------------------------------------------------------------
+             ID  Sex  Marital status  Age  Education  Income  Occupation  \
+625   100000626    0               0   35          1  106919           1   
+1428  100001429    1               0   66          3  131001           1   
+432   100000433    0               0   36          1  136689           2   
+856   100000857    1               1   40          2  107585           1   
+953   100000954    1               1   26          1  223185           2   
+
+      Settlement size  
+625                 1  
+1428                0  
+432                 2  
+856                 2  
+953                 1  
+
+Resumo
+--------------------------------------------------------------------------------
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 8 columns):
+ #   Column           Non-Null Count  Dtype
+---  ------           --------------  -----
+ 0   ID               2000 non-null   int64
+ 1   Sex              2000 non-null   int64
+ 2   Marital status   2000 non-null   int64
+ 3   Age              2000 non-null   int64
+ 4   Education        2000 non-null   int64
+ 5   Income           2000 non-null   int64
+ 6   Occupation       2000 non-null   int64
+ 7   Settlement size  2000 non-null   int64
+dtypes: int64(8)
+memory usage: 125.1 KB
+None
+
+Describe
+--------------------------------------------------------------------------------
+                count unique top  freq
+Sex              2000      2   0  1086
+Marital status   2000      2   0  1007
+Education        2000      4   1  1386
+Occupation       2000      3   1  1113
+Settlement size  2000      3   0   989
+
+Programa finalizado com sucesso!!!
