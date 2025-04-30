@@ -37,16 +37,6 @@ municipios_shp = gpd.read_file(path_shapefile)
 # Mudando o nome de uma coluna, de NM_MUN para municipio
 municipios_shp.rename(columns={'NM_MUN': 'municipio'}, inplace=True)
 
-# # Garantir CRS correto
-# municipios_shp = municipios_shp.to_crs(epsg=4326)
-
-# # Aplicar filtro geográfico
-# municipios_shp = municipios_shp.cx[-42.034520:-39.351673, -21.385750:-17.775498]
-
-# # Proteção extra: excluir qualquer geometria fora da longitude esperada
-# municipios_shp = municipios_shp[municipios_shp.geometry.centroid.x < -30]
-
-
 # Verificar se o shapefile foi lido corretamente
 if municipios_shp.empty:
     raise ValueError("O shapefile dos municípios do ES está vazio ou não foi lido corretamente. Verifique o caminho e o formato do arquivo.")   
@@ -90,29 +80,7 @@ ax.set_ylim(-21.385750, -17.775498)
 plt.title('IDEB dos Municípios do Espírito Santo (2023)', fontsize=15)
 plt.axis('off')
 plt.tight_layout()
-plt.savefig('ideb_municipios_es.png', dpi=300, bbox_inches='tight')
-plt.show()
-
-# Fazer um segundo mapa com círculos proporcionais e coloridos
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ideb_municipios.boundary.plot(ax=ax, linewidth=1, color='black')
-ideb_municipios.plot(column='ideb_2023', ax=ax, legend=True, cmap='viridis', edgecolor='black', linewidth=0.5)
-for x, y, ideb in zip(ideb_municipios.geometry.centroid.x, ideb_municipios.geometry.centroid.y, ideb_municipios['ideb_2023']):
-    circle = plt.Circle((x, y), radius=ideb*1000, color='blue', alpha=0.5)  # Ajuste o fator de escala conforme necessário
-    ax.add_patch(circle)
-
-    # Texto central com contorno branco
-    ax.text(x, y, str(ideb), fontsize=8, ha='center', va='center', color='white', fontweight='bold', path_effects=[mpl.patheffects.withStroke(linewidth=3, foreground='black')])    
-
-# Limitar visualização (x = longitude, y = latitude)
-# consegui estas coordenadas no Google Maps
-ax.set_xlim(-42.034520, -39.351673)
-ax.set_ylim(-21.385750, -17.775498)
-
-plt.title('IDEB dos Municípios do Espírito Santo (2023)', fontsize=15)
-plt.axis('off')
-plt.tight_layout()
-plt.savefig('ideb_municipios_es_circulos.png', dpi=300, bbox_inches='tight')
+plt.savefig('../../figuras/ideb_municipios_es.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # Exibir mensagem de conclusão
