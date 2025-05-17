@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-17">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nota" type="double" />
+    </attributes>
+    <nodes>
+      <node id="Ana" label="Ana">
+        <attvalues>
+          <attvalue for="0" value="8.5" />
+        </attvalues>
+      </node>
+      <node id="Bruno" label="Bruno">
+        <attvalues>
+          <attvalue for="0" value="7.8" />
+        </attvalues>
+      </node>
+      <node id="Carlos" label="Carlos">
+        <attvalues>
+          <attvalue for="0" value="9.2" />
+        </attvalues>
+      </node>
+      <node id="Diana" label="Diana">
+        <attvalues>
+          <attvalue for="0" value="6.9" />
+        </attvalues>
+      </node>
+      <node id="Eduarda" label="Eduarda">
+        <attvalues>
+          <attvalue for="0" value="8.0" />
+        </attvalues>
+      </node>
+      <node id="Felipe" label="Felipe">
+        <attvalues>
+          <attvalue for="0" value="7.0" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Ana" target="Bruno" id="0" />
+      <edge source="Ana" target="Carlos" id="1" />
+      <edge source="Bruno" target="Eduarda" id="2" />
+      <edge source="Carlos" target="Diana" id="3" />
+      <edge source="Carlos" target="Felipe" id="4" />
+      <edge source="Diana" target="Eduarda" id="5" />
+      <edge source="Eduarda" target="Felipe" id="6" />
+    </edges>
+  </graph>
+</gexf>

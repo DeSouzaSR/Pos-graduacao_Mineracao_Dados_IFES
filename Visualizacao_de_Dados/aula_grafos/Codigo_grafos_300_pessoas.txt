@@ -1,0 +1,42 @@
+import pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Leitura do arquivo Excel com os pares de colaboração
+df = pd.read_excel("colaboracoes_300_pessoas.xlsx")
+
+# Criação do grafo
+G = nx.Graph()
+G.add_edges_from([tuple(x) for x in df.values])
+
+# Cálculo de grau para cada nó
+graus = dict(G.degree())
+
+# =======================
+# Gráfico 1: Grafo com nomes
+# =======================
+plt.figure(figsize=(16, 12))
+nx.draw(G,
+        with_labels=True,
+        node_color='lightblue',
+        node_size=500,
+        edge_color='gray',
+        width=2,
+        font_size=8)
+plt.title("Rede de Colaboração com 300 Pessoas")
+plt.show()
+
+# ==============================
+# Gráfico 2: Nós escalados pelo grau
+# ==============================
+node_sizes = [graus[n] * 100 for n in G.nodes()]  # dimensionamento por conexões
+
+plt.figure(figsize=(16, 12))
+nx.draw(G,
+        with_labels=False,
+        node_color='lightgreen',
+        node_size=node_sizes,
+        edge_color='gray',
+        width=2)
+plt.title("Rede com Nós Dimensionados pelo Grau (Quantidade de Conexões)")
+plt.show()
