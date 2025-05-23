@@ -1,0 +1,76 @@
+---
+title: Trabalho prático 4 - TP4
+subtitle: Nuvens de palavras e análise de sentimentos
+author: Sandro Ricardo De Souza
+date: 2025-05-23
+format: pdf
+output: true
+eval: true
+echo: true
+---
+
+## Descrição do trabalho
+
+* Disciplina: Visualização de Dados 
+* Professor: Dr. Richard Godinez Tello 
+* Semestre: 2025/1 
+
+### Item 1
+
+Valor: 5 pontos
+
+Com base no Material Complementar 4, desenvolva um algoritmo para exibir uma nuvem de palavras com coloração personalizada (diferente da escala de cinzas), utilizando o formato  (máscara) de sua preferência. A coloração pode seguir um dos seguintes estilos:
+
+* Degradê de uma única cor: variação de intensidade (ex.: tons de azul), 
+* Degradê multicolorido: transição entre múltiplas cores (ex.: rosa → lilás → azul escuro). 
+
+Utilize dados baseados em feedbacks educacionais simulados ou reais, ou ainda escolher um 
+conjunto de dados com o tema que desejar. Dica: caso prefira, utilize a figura de um livro 
+colorido, que será disponibilizada no AVA, como base para aplicar o efeito de coloração. 
+
+### Item 2
+
+Valor: 5 pontos
+
+Crie uma base de dados simulada contendo textos curtos (como comentários, avaliações ou  postagens) com polaridades variadas (positiva, negativa e neutra). Em seguida, desenvolva  um algoritmo de análise de sentimentos utilizando um modelo pré-treinado baseado em  Transformers (Hugging Face). Por fim, compare os resultados obtidos com pelo menos dois 
+modelos pré-treinados (biblioteca `Transformers` - _Hugging Face_), avaliando diferenças nas  classificações através dos níveis de confiança (score).
+
+## Resolução do item 1 - Nuvem de palavras
+
+Não criamos uma base baseada em _feedbacks_ educacionais. Ao invés disto, utilizamos a base disponibulizada no [Kaggle]( https://www.kaggle.com/datasets/brunoluvizotto/brazilian-headlines-sentiments), em que o autor realizou um estudo para análise de sentimentos. O dataset foi utilizado aqui tanto para produzir a nuvem de palavras quano para a análise de sentimentos.
+
+O estudo utiliza uma base de dados focada na análise de sentimento de manchetes de notícias brasileiras. O objetivo principal é identificar a orientação política das agências de notícias em relação a figuras políticas, avaliando quais são mais ou menos favoráveis a determinados nomes.
+
+A coleta das manchetes é realizada por um *scraper* que vasculha diversos sites de notícias brasileiras a cada trinta minutos. As manchetes são traduzidas para o inglês, e a análise de sentimento é então aplicada usando a API de Linguagem Natural do Google, tanto nas versões em português quanto em inglês. Os resultados são armazenados em um banco de dados que também inclui informações sobre o tempo de exibição online das manchetes.
+
+Os sites de notícias pesquisados e utilizados na coleta de dados são:
+
+* **UOL** ([https://www.uol.com.br/](https://www.uol.com.br/))
+* **Folha de São Paulo** ([https://www.folha.uol.com.br/](https://www.folha.uol.com.br/))
+* **O Antagonista** ([https://www.oantagonista.com/](https://www.oantagonista.com/))
+* **G1** ([https://g1.globo.com/](https://g1.globo.com/))
+* **R7** ([https://www.r7.com/](https://www.r7.com/))
+* **Senso Incomum** ([https://www.sensoincomum.org](https://www.sensoincomum.org))
+* **Terça Livre** ([https://www.tercalivre.com.br/](https://www.tercalivre.com.br/))
+
+As palavras-chave monitoradas no processo de coleta incluem nomes de políticos como Bolsonaro, Moro, Lula, e outros presidentes, ex-presidentes, governadores, ministros, ex-ministros e possíveis candidatos a prefeito de São Paulo e do Rio de Janeiro. A análise de sentimento em inglês é recomendada devido à maior confiabilidade da API para este idioma.
+
+
+```{python}
+{{< include nuvem.py >}}
+```
+
+## Resolução do item 2 - Análise de sentimentos
+
+Não criamos uma base simulada. Ao invés disto, utilizamos a base disponibulizada no Kaggle, já usada para o item 1.
+
+1. Preparação dos Dados: Filtraremos o dataframe para incluir apenas as manchetes que mencionam "Bolsonaro".
+2. Seleção e Carregamento dos Modelos: Escolheremos dois modelos de análise de sentimentos em português da Hugging Face.
+3. Aplicação dos Modelos: Executaremos a análise de sentimentos em cada manchete filtrada usando os dois modelos.
+4. Análise dos Resultados: Agregaremos os resultados para determinar o sentimento geral em relação a Bolsonaro e o sentimento por cada website
+5. Plotar resultados: Plotaremos a quantidade de sentimentos negativos, positivos e neutros, entre todos os veículos de notícias pesquisados. Também plotaremos o maior sentimento por website pesquisado.
+
+
+```{python}
+{{< include sentimentos.py >}}
+```
