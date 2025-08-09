@@ -29,7 +29,7 @@ def cabecalho(titulo):
 
 # %% 
 # Caminho
-path_file = r'C:\Users\srsouza\Documents\Estudos\Pos-graduacao_Mineracao_Dados_IFES\datasets\segmentation_data.csv'
+path_file = r'./data/segmentation_data_antigo.csv'
 
 # %%
 # Leitura do dataframe
